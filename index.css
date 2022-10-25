@@ -1,0 +1,108 @@
+html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'Source Sans Pro', sans-serif;
+    font-size: 13px;
+    background-color: #EDEDED;
+}
+
+p {
+    margin: 0px;
+}
+
+header {
+    height: 67px;
+    border-bottom: 1px #c6c6c6 solid;
+    background-color: #FFF;
+    position: fixed;
+    width: 100vw;
+    top: 0px;
+    z-index: 1;
+}
+
+main {
+    position: relative;
+    top: 76px;
+    z-index: 0;
+    padding-bottom: 0.05px;
+}
+
+article {
+    margin-bottom: 20px;
+    background-color: #FFF;
+    border: 1px solid #c6c6c6;
+    border-radius: 6px;
+}
+
+.container {
+    max-width: 375px;
+    margin: 0 auto;
+}
+
+header .container {
+    max-width: 450px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 67px;
+}
+
+.app-logo {
+    margin-left: 15px;
+    width: 127px;
+    height: 47px;
+}
+
+.user-avatar {
+    margin-right: 15px;
+    width: 34px;
+    height: 34px;
+    border-radius: 20px;
+}
+
+section {
+    margin:0;
+}
+
+.user-topbar {
+    width: 348px;
+    height: 32px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    padding: 10px 12px;
+}
+
+.poster-avatar {
+    margin-right: 10px;
+    width: 34px;
+    height: 34px;
+    border-radius: 20px;
+}
+
+.strong {
+    font-weight: bold;
+}
+
+.user-location {
+    font-size: 12px;
+}
+
+.post-img {
+    width: 100%;
+}
+
+.interactions {
+    margin: 0;
+    padding: 10px 0px 20px 12px;
+}
+
+.btn-row img {
+    width: 23px;
+    margin: 0px 7px 0px 0px;
+}
+
+.likes-number,
+.comments {
+    margin-top: 11px;
+}
