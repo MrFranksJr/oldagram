@@ -61,6 +61,7 @@ function checkLocalStorage() {
 }
 
 function loadPosts() {
+    pageContent = ""
     for (i=0; i < posts.length; i++) {
         let name = posts[i].name
         let username = posts[i].username
@@ -69,7 +70,6 @@ function loadPosts() {
         let post = posts[i].post
         let comment = posts[i].comment
         let likes = posts[i].likes
-
         
         pageContent += `
         <article>
@@ -85,9 +85,9 @@ function loadPosts() {
         </section>
         <section class="interactions">
             <div class="btn-row">
-                <img class="like-btn" src="images/icon-heart.png">
+                <img id="like-btn${i}" class="like-btn" src="images/icon-heart.png">
                 <img class="comment-btn" src="images/icon-comment.png">
-                <img src="images/icon-dm.png">
+                <img class='dm-btn' src="images/icon-dm.png">
             </div>
             <div class="likes-number">
                 <p class="strong">${likes} likes</p>
@@ -109,12 +109,14 @@ function initLikeButtons() {
     for (i = 0; i < posts.length; i++) {
         likeCount.push(posts[i].likes)
     }
-    console.log(likeCount)
     likeIcons.forEach((icon, index) => {
         icon.addEventListener('click', () => {
-          likeCount[index] += 1
-          posts[index].likes.push(likeCount[index])
-          console.log(posts[index].likes)
+            likeCount[index] += 1
+            posts[index].likes = likeCount[index]
+            loadPosts()
+            let likeIcon = document.getElementById("like-btn"+index)
+            likeIcon.src = "images/liked-icon.png"
+            likeIcon.classList.add("liked")
         })
       })
 }

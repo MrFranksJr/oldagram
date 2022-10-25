@@ -105,13 +105,20 @@ footer {
     padding: 10px 0px 20px 12px;
 }
 
-.btn-row img {
+.like-btn,
+.comment-btn,
+.dm-btn {
     width: 23px;
     margin: 0px 7px 0px 0px;
     opacity: 0.5;
 }
 
-.btn-row img:hover {
+.btn-row img:hover,
+.btn-row img:focus {
+    opacity: 1;
+}
+
+.liked {
     opacity: 1;
 }
 
