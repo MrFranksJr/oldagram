@@ -34,13 +34,13 @@ article {
 
 .container {
     display: block;
-    max-width: 450px;
+    max-width: 375px;
     min-height: 70px;
     margin: 0 auto;
 }
 
 header .container {
-    max-width: 510px;
+    max-width: 450px;
     display: flex;
     justify-content: space-between;
     align-items: center;
