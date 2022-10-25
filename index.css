@@ -1,7 +1,7 @@
 html, body {
     margin: 0;
     padding: 0;
-    font-family: 'Source Sans Pro', sans-serif;
+    font-family: 'Source Sans Pro', 'Apple Color Emoji', sans-serif;
     font-size: 13px;
     background-color: #EDEDED;
 }
@@ -34,6 +34,10 @@ article {
     border-radius: 6px;
 }
 
+article:last-child {
+    margin-bottom: 40px;
+}
+
 .container {
     max-width: 375px;
     margin: 0 auto;
@@ -62,6 +66,10 @@ header .container {
 
 section {
     margin:0;
+}
+
+footer {
+    text-align: center;
 }
 
 .user-topbar {
@@ -100,9 +108,20 @@ section {
 .btn-row img {
     width: 23px;
     margin: 0px 7px 0px 0px;
+    opacity: 0.5;
+}
+
+.btn-row img:hover {
+    opacity: 1;
 }
 
 .likes-number,
 .comments {
     margin-top: 11px;
+}
+
+footer div p {
+    position: absolute;
+    display: inline-block;
+    padding: 0.5px;
 }
