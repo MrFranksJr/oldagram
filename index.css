@@ -22,9 +22,7 @@ header {
 
 main {
     position: relative;
-    top: 76px;
     z-index: 0;
-    padding-bottom: 0.05px;
 }
 
 article {
@@ -39,7 +37,9 @@ article:last-child {
 }
 
 .container {
+    display: block;
     max-width: 375px;
+    min-height: 70px;
     margin: 0 auto;
 }
 
@@ -69,6 +69,7 @@ section {
 }
 
 footer {
+    height: 80px;
     text-align: center;
 }
 
