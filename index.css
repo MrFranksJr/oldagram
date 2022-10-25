@@ -21,8 +21,8 @@ header {
 }
 
 main {
-    position: relative;
     z-index: 0;
+    margin-top: 80px;
 }
 
 article {
@@ -30,10 +30,6 @@ article {
     background-color: #FFF;
     border: 1px solid #c6c6c6;
     border-radius: 6px;
-}
-
-article:last-child {
-    margin-bottom: 40px;
 }
 
 .container {
@@ -69,8 +65,11 @@ section {
 }
 
 footer {
-    height: 80px;
+    padding-top: 25px;
+    height: 30px;
     text-align: center;
+    color: #EEE;
+    text-shadow:  -.5px -.5px 0.1px #979797;
 }
 
 .user-topbar {
@@ -119,10 +118,4 @@ footer {
 .likes-number,
 .comments {
     margin-top: 11px;
-}
-
-footer div p {
-    position: absolute;
-    display: inline-block;
-    padding: 0.5px;
 }
