@@ -1,4 +1,5 @@
 const mainContainer = document.getElementById("main-container")
+const hardRefresh = document.getElementById("refresh-btn")
 let likeButtons = []
 let pageContent = ""
 const defaultPosts = [
@@ -196,3 +197,8 @@ function initLikeButtons() {
         })
       })
 }
+
+hardRefresh.addEventListener("click", function() {
+    localStorage.clear()
+    
+})
