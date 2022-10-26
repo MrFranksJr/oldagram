@@ -126,3 +126,8 @@ footer {
 .comments {
     margin-top: 11px;
 }
+
+a {
+    color: rgb(180, 180, 180);
+    text-shadow: none;
+}

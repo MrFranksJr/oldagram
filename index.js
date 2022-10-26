@@ -200,5 +200,5 @@ function initLikeButtons() {
 
 hardRefresh.addEventListener("click", function() {
     localStorage.clear()
-    
+    document.location.reload(true)
 })
