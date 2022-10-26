@@ -1,7 +1,6 @@
 const mainContainer = document.getElementById("main-container")
 let likeButtons = []
 let pageContent = ""
-let emoji = String.fromCodePoint(0x1F600)
 const defaultPosts = [
     {
         name: "Vincent van Gogh",
@@ -10,7 +9,9 @@ const defaultPosts = [
         avatar: "images/avatar-vangogh.jpg",
         post: "images/post-vangogh.jpg",
         comment: "just took a few mushrooms lol",
-        likes: 21
+        likes: 21,
+        userlike: false,
+        recentlyLiked: false
     },
     {
         name: "Gustave Courbet",
@@ -18,8 +19,10 @@ const defaultPosts = [
         location: "Ornans, France",
         avatar: "images/avatar-courbet.jpg",
         post: "images/post-courbet.jpg",
-        comment: "i'm feelin a bit stressed tbh",
-        likes: 4
+        comment: "i'm feelin a bit stressed tbh 🧟‍♂️",
+        likes: 4,
+        userlike: false,
+        recentlyLiked: false
     },
         {
         name: "Joseph Ducreux",
@@ -27,8 +30,10 @@ const defaultPosts = [
         location: "Paris, France",
         avatar: "images/avatar-ducreux.jpg",
         post: "images/post-ducreux.jpg",
-        comment: "gm friends! which coin are YOU stacking up today?? post below and WAGMI!",
-        likes: 152
+        comment: "GM friends! ☀️ which coin are YOU stacking up today?? post below and WAGMI!",
+        likes: 152,
+        userlike: false,
+        recentlyLiked: false
     },
         {
         name: "Franky Blondeel",
@@ -36,9 +41,33 @@ const defaultPosts = [
         location: "Knokke, Belgium",
         avatar: "images/user-avatar.png",
         post: "images/post-franky.jpg",
-        comment: "just me and my sister and brother, enjoying some goodies on the beach, a looong time ago 🍦",
-        likes: 87
-}
+        comment: "Just me and my sister and brother, enjoying some goodies on the beach, a looong time ago 🍦",
+        likes: 87,
+        userlike: false,
+        recentlyLiked: false
+    },
+    {
+        name: "Leonardo Da Vinci",
+        username: "realLeo",
+        location: "Turin, Italy",
+        avatar: "images/avatar-leo.jpg",
+        post: "images/post-leo.jpg",
+        comment: "Slow day at the office, decided to make a quick doodle",
+        likes: 2653,
+        userlike: false,
+        recentlyLiked: false
+    },
+    {
+        name: "Claude Monet",
+        username: "mrCloClo",
+        location: "Giverny, France",
+        avatar: "images/avatar-monet.jpg",
+        post: "images/post-monet.jpg",
+        comment: "Hah! Found this oldie in the attic!",
+        likes: 1563,
+        userlike: false,
+        recentlyLiked: false
+    },
 ]
 let posts = []
 
@@ -70,37 +99,75 @@ function loadPosts() {
         let post = posts[i].post
         let comment = posts[i].comment
         let likes = posts[i].likes
-        
-        pageContent += `
-        <article>
-        <section class="user-topbar">
-            <img class="poster-avatar" src="${avatar}">
-            <div class="user-info">
-                <p class="username strong">${name}</p>
-                <p class="user-location">${location}</p>
-            </div>
-        </section>
-        <section class="user-post">
-            <img class="post-img" src="${post}">
-        </section>
-        <section class="interactions">
-            <div class="btn-row">
-                <img id="like-btn${i}" class="like-btn" src="images/icon-heart.png">
-                <img class="comment-btn" src="images/icon-comment.png">
-                <img class='dm-btn' src="images/icon-dm.png">
-            </div>
-            <div class="likes-number">
-                <p class="strong">${likes} likes</p>
-            </div>
-            <div class="comments">
-                <p><span class="poster-name strong">${username}</span> ${comment}</p>
-            </div>
-        </section>
-        </article>
+
+        let postStructurePt1 = `
+                    <article>
+                    <section class="user-topbar">
+                        <img class="poster-avatar" src="${avatar}">
+                        <div class="user-info">
+                            <p class="username strong">${name}</p>
+                            <p class="user-location">${location}</p>
+                        </div>
+                    </section>
+                    <section class="user-post">
+                        <img class="post-img" src="${post}">
+                    </section>
+                    <section class="interactions">
+                        <div class="btn-row">
         `
+
+        let postStructurePt2 = `
+                            <img class="comment-btn" src="images/icon-comment.png">
+                            <img class='dm-btn' src="images/icon-dm.png">
+                            </div>
+                            <div class="likes-number">
+                            <p class="strong">${likes} likes</p>
+                            </div>
+                            <div class="comments">
+                            <p><span class="poster-name strong">${username}</span> ${comment}</p>
+                            </div>
+                        </section>
+                    </article>
+        `
+
+        let alternatePostStructure = `
+            <img class="comment-btn" src="images/icon-comment.png">
+                <img class='dm-btn' src="images/icon-dm.png">
+                    </div>
+                    <div class="likes-number">
+                    <p class="strong">You and ${likes-1} others liked this</p>
+                    </div>
+                    <div class="comments">
+                    <p><span class="poster-name strong">${username}</span> ${comment}</p>
+                    </div>
+                </section>
+            </article>
+        `
+        
+        if (posts[i].userlike === false) {
+            pageContent += postStructurePt1 + `<img class="like-btn" src="images/icon-heart.png">` + postStructurePt2
+        }
+        else if (posts[i].userlike === true && posts[i].recentlyLiked === true) {
+            pageContent += postStructurePt1 + `<img class="like-btn" src="images/liked-icon.png">` + alternatePostStructure
+            posts[i].recentlyLiked = false
+        }
+        else if (posts[i].userlike === true && posts[i].recentlyLiked === false) {
+            pageContent += postStructurePt1 + `<img class="like-btn" src="images/liked-icon.png">` + postStructurePt2
+        }
     }
+
     mainContainer.innerHTML = pageContent
     initLikeButtons()
+    setTimeout(() => {
+        let likedStatements = document.querySelectorAll(".likes-number")
+        likedStatements.forEach((statement, index) => {
+            let textContent = statement.innerHTML
+            if (textContent.includes("You and")) {
+                textContent = `<p class="strong">${posts[index].likes} likes<p>`
+                statement.innerHTML = textContent
+            }
+        })
+    }, 5000);
 }
 
 function initLikeButtons() {
@@ -111,26 +178,21 @@ function initLikeButtons() {
     }
     likeIcons.forEach((icon, index) => {
         icon.addEventListener('click', () => {
+        if (posts[index].userlike === false) {
             likeCount[index] += 1
             posts[index].likes = likeCount[index]
+            posts[index].userlike = true
+            posts[index].recentlyLiked = true
+            localStorage.setItem("postStorage", JSON.stringify(posts))
             loadPosts()
-            let likeIcon = document.getElementById("like-btn"+index)
-            likeIcon.src = "images/liked-icon.png"
-            likeIcon.classList.add("liked")
+        }
+        else if (posts[index].userlike === true) {
+            likeCount[index] -= 1
+            posts[index].likes = likeCount[index]
+            posts[index].userlike = false
+            localStorage.setItem("postStorage", JSON.stringify(posts))
+            loadPosts()
+        }
         })
       })
 }
-
-
-removeBtn = document.getElementsByTagName("span")
-    i = 0
-    for (i = 0; i < removeBtn.length; i++) {
-        removeBtn[i].onclick = function() {
-        let a = this.previousSibling
-        let index = myShopping.indexOf(a.textContent)
-        myShopping.splice(index, 1)
-        localStorage.setItem("myShopping", JSON.stringify(myShopping))
-        renderShoppingItems(myShopping)
-        lineRemoval()
-      } 
-    }
