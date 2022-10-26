@@ -222,15 +222,7 @@ function initLikeButtons() {
     })
 }
 
-hardRefresh.addEventListener("click", function() {
+/* hardRefresh.addEventListener("click", function() {
     localStorage.clear()
     document.location.reload(true)
-})
-
-
-/* 
-let postImage = document.getElementById("post-id"+[i])
-            postImage.classList.add("justliked")
-            setTimeout(() => {
-                postImage.classList.remove("justliked")
-            }, 1000); */
+}) */
