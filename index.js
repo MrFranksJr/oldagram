@@ -111,7 +111,7 @@ function loadPosts() {
                         </div>
                     </section>
                     <section class="user-post">
-                        <img class="post-img" src="${post}">
+                        <img class="post-img" src="${post}"><span id="span-id-${i}">♥️</span>
                     </section>
                     <section class="interactions">
                         <div class="btn-row">
@@ -159,6 +159,7 @@ function loadPosts() {
 
     mainContainer.innerHTML = pageContent
     initLikeButtons()
+
     setTimeout(() => {
         let likedStatements = document.querySelectorAll(".likes-number")
         likedStatements.forEach((statement, index) => {
@@ -173,7 +174,9 @@ function loadPosts() {
 
 function initLikeButtons() {
     let likeIcons = document.querySelectorAll(".like-btn")
+    let likeImgs = document.querySelectorAll(".post-img")
     let likeCount = []
+    let heartSpan = []
     for (i = 0; i < posts.length; i++) {
         likeCount.push(posts[i].likes)
     }
@@ -195,10 +198,39 @@ function initLikeButtons() {
             loadPosts()
         }
         })
-      })
+    })
+    likeImgs.forEach((img, index) => {
+        img.addEventListener("dblclick", () => {
+            if (posts[index].userlike === false) {
+                likeCount[index] += 1
+                posts[index].likes = likeCount[index]
+                
+                
+
+                posts[index].userlike = true
+                posts[index].recentlyLiked = true
+                localStorage.setItem("postStorage", JSON.stringify(posts))
+                loadPosts()
+                let heartSpan = document.getElementById("span-id-"+[index])
+                heartSpan.classList.add("justliked")
+                
+                setTimeout(() => {
+                    heartSpan.classList.remove("justliked")
+                }, 1000);
+            }
+        })
+    })
 }
 
 hardRefresh.addEventListener("click", function() {
     localStorage.clear()
     document.location.reload(true)
 })
+
+
+/* 
+let postImage = document.getElementById("post-id"+[i])
+            postImage.classList.add("justliked")
+            setTimeout(() => {
+                postImage.classList.remove("justliked")
+            }, 1000); */

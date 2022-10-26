@@ -96,10 +96,6 @@ footer {
     font-size: 12px;
 }
 
-.post-img {
-    width: 100%;
-}
-
 .interactions {
     margin: 0;
     padding: 10px 0px 20px 12px;
@@ -118,10 +114,6 @@ footer {
     opacity: 1;
 }
 
-.liked {
-    opacity: 1;
-}
-
 .likes-number,
 .comments {
     margin-top: 11px;
@@ -130,4 +122,27 @@ footer {
 a {
     color: rgb(180, 180, 180);
     text-shadow: none;
+}
+
+.user-post {
+    position: relative;
+    width: 100%;
+}
+
+.user-post span {
+    position: absolute;
+    font-size: 250px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0.75;
+    display: none;
+}
+
+.post-img {
+    width: 100%;
+}
+
+.user-post .justliked {
+    display: inline-block;
 }
