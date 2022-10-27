@@ -161,7 +161,7 @@ function loadPosts() {
     initLikeButtons()
 
     setTimeout(() => {
-        let likedStatements = document.querySelectorAll(".likes-number")
+        const likedStatements = document.querySelectorAll(".likes-number")
         likedStatements.forEach((statement, index) => {
             let textContent = statement.innerHTML
             if (textContent.includes("You and")) {
@@ -173,8 +173,8 @@ function loadPosts() {
 }
 
 function initLikeButtons() {
-    let likeIcons = document.querySelectorAll(".like-btn")
-    let likeImgs = document.querySelectorAll(".post-img")
+    const likeIcons = document.querySelectorAll(".like-btn")
+    const likeImgs = document.querySelectorAll(".post-img")
     let likeCount = []
     let heartSpan = []
     for (i = 0; i < posts.length; i++) {
@@ -211,7 +211,7 @@ function initLikeButtons() {
                 posts[index].recentlyLiked = true
                 localStorage.setItem("postStorage", JSON.stringify(posts))
                 loadPosts()
-                let heartSpan = document.getElementById("span-id-"+[index])
+                const heartSpan = document.getElementById("span-id-"+[index])
                 heartSpan.classList.add("justliked")
                 
                 setTimeout(() => {
