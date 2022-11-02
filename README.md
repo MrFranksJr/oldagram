@@ -22,7 +22,9 @@ The following were the Stretch goals:
 * Use Javascript to render out all three posts
 * Increase the likes when double clicking the post
 ![stretch goals](https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/oldagram/stretch-goals.png)
-<img src="https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/oldagram/stretch-goals.png" align="center" width="200px">
+<p align="center">
+<img src="https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/oldagram/stretch-goals.png" width="200px">
+</p>
 
 
 It was a given that I wanted to immediately render all posts using Javascript... All posts are coming from an array of Objects.
