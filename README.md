@@ -16,14 +16,15 @@ The following were the base requirements of the assignment:
 * Create the first post
 * Use semantic HTML
 * Add hover effects on the icons (Like, Comment, Share)
-![goals](https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/oldagram/requirements.png)
+<p align="center">
+<img src="https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/oldagram/requirements.png">
+</p>
 
 The following were the Stretch goals:
 * Use Javascript to render out all three posts
 * Increase the likes when double clicking the post
-![stretch goals](https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/oldagram/stretch-goals.png)
 <p align="center">
-<img src="https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/oldagram/stretch-goals.png" width="200px">
+<img src="https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/oldagram/stretch-goals.png">
 </p>
 
 
@@ -34,9 +35,15 @@ Extra goals that I achieved:
 * The like system is extended:
     - When clicking the heart- icon, the system shows a string 'You and XXX others like this' and later revert to the sum of all Like
     - 'Over-liking' is not possible. It is possible to unlike a picture when clicking the heart again
-    ![Freshly liked](https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/oldagram/like-system1.jpg)
-    ![sum of likes](https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/oldagram/like-system2.jpg)
-    ![Unlike](https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/oldagram/like-system3.jpg)
+    <p align="center">
+    <img src="https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/oldagram/like-system1.jpg">
+    </p>
+    <p align="center">
+    <img src="https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/oldagram/like-system2.jpg">
+    </p>
+    <p align="center">
+    <img src="https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/oldagram/like-system3.jpg">
+    </p>
 * The posts themselves are initially loaded in from an array of Objects. However, the first thing I do is store all posts inside the LocalStorage. 
     - I actually wanted to extend the initial array to allow people to add extra posts or comments or something. I left this behind, and did not implement it.
     - The second time you load the page, the posts are loaded from LocalStorage.
@@ -44,8 +51,9 @@ Extra goals that I achieved:
 * Double-click eventlistener on the pics: It is possible to like the pics by double-clicking or double-tapping. Unliking is not possible via double-tap, which is by design.
 * Added some extra posts, not that this is a notable achievement.
 
-![screenshot of the application](https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/oldagram/app_screen.jpg)
-
+<p align="center">
+<img src="https://github.com/MrFranksJr/MrFranksJr/blob/main/assets/oldagram/app_screen.jpg">
+</p>
 
 
 ## Conclusion
