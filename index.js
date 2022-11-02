@@ -226,15 +226,3 @@ function initLikeButtons() {
     localStorage.clear()
     document.location.reload(true)
 }) */
-
-
-//darkmode
-const dModeToggle = document.getElementById("darkmode-toggle")
-const bodyEl = document.body
-console.log(dModeToggle)
-
-dModeToggle.addEventListener("change", e => {
-    if(e.target.checked){
-       console.log("checked")
-    }
-})
